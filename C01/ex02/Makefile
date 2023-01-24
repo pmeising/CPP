@@ -6,11 +6,11 @@
 #    By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 12:13:04 by pmeising          #+#    #+#              #
-#    Updated: 2023/01/24 18:06:56 by pmeising         ###   ########.fr        #
+#    Updated: 2023/01/24 21:10:09 by pmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= MEGAPHONE
+NAME		:= HI_THIS_IS_BRIAN
 
 C++			:= c++
 
@@ -18,15 +18,13 @@ CFLAGS		:= -Werror -Wextra -Wall -g -std=c++98
 
 RM			:= rm
 
-SRCS		:=	./megaphone.cpp \
-
-OBJS		:= ${SRCS:.cpp=.o}
+SRCS		:=	./main.cpp \
 
 all:		$(NAME)
 
 .PHONY:		all clean fclean re
 
-$(NAME):	${OBJS}
+$(NAME):
 			${C++} ${CFLAGS} -o ${NAME} ${SRCS}
 
 re:			fclean all
