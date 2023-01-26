@@ -6,28 +6,36 @@
 #    By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 12:13:04 by pmeising          #+#    #+#              #
-#    Updated: 2023/01/24 18:52:08 by pmeising         ###   ########.fr        #
+#    Updated: 2023/01/25 18:28:15 by pmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= BraiiiiiiinnnzzzZ
+NAME		:= BraiiiiiinZ
 
 C++			:= c++
 
 CFLAGS		:= -Werror -Wextra -Wall -g -std=c++98
 
-RM			:= rm
+RM			:= rm -f
 
-SRCS		:=	./main.cpp ./newZombie.cpp ./Zombie.cpp ./randomChump.cpp \
+SRCS		:=	./main.cpp \
+				./Zombie.cpp \
+				./newZombie.cpp \
+				./randomChump.cpp \
+
+OBJS		:= ${SRCS:.cpp=.o}
 
 all:		$(NAME)
 
 .PHONY:		all clean fclean re
 
-$(NAME):
+$(NAME):	${OBJS}
 			${C++} ${CFLAGS} -o ${NAME} ${SRCS}
 
 re:			fclean all
 
-fclean:
-			$(RM) $(NAME)
+clean:
+			$(RM) ${OBJS}
+
+fclean:		clean
+			$(RM) ${NAME}

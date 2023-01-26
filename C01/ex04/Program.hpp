@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   Program.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 19:11:43 by pmeising          #+#    #+#             */
-/*   Updated: 2023/01/26 18:36:17 by pmeising         ###   ########.fr       */
+/*   Created: 2023/01/25 20:11:19 by pmeising          #+#    #+#             */
+/*   Updated: 2023/01/25 20:15:08 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#ifndef PROGRAM_H
+# define PROGRAM_H
 
-Zombie	*zombieHorde(int N, std::string name)
+# include <iostream>
+# include <string>
+# include <fstream>
+
+class	File
 {
-	Zombie	*Horde = new Zombie[N];
-	int		i = 0;
+	File();
+	~File();
+	
+	private:
+		std::string	content;
+};
 
-	while (i < N)
-	{
-		Horde[i].setname(name);
-		i++;
-	}
-	return (Horde);
-}
+
+#endif

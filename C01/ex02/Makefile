@@ -6,7 +6,7 @@
 #    By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 12:13:04 by pmeising          #+#    #+#              #
-#    Updated: 2023/01/24 21:10:09 by pmeising         ###   ########.fr        #
+#    Updated: 2023/01/25 18:29:43 by pmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,19 @@ RM			:= rm
 
 SRCS		:=	./main.cpp \
 
+OBJS		:= ${SRCS:.cpp=.o}
+
 all:		$(NAME)
 
 .PHONY:		all clean fclean re
 
-$(NAME):
+$(NAME):	${OBJS}
 			${C++} ${CFLAGS} -o ${NAME} ${SRCS}
 
 re:			fclean all
 
-fclean:
-			$(RM) $(NAME)
+clean:
+			$(RM) ${OBJS}
+
+fclean:		clean
+			$(RM) ${NAME}

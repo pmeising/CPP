@@ -6,7 +6,7 @@
 #    By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 12:13:04 by pmeising          #+#    #+#              #
-#    Updated: 2023/01/23 11:46:53 by pmeising         ###   ########.fr        #
+#    Updated: 2023/01/25 18:16:25 by pmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS		:=	./main.cpp \
 				./PhoneBook.cpp \
 				./Contact.cpp \
 
-OBJS		:= ${SRCS:.c=.o}
+OBJS		:= ${SRCS:.cpp=.o}
 
 all:		$(NAME)
 

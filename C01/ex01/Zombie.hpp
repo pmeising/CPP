@@ -6,12 +6,12 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 17:17:20 by pmeising          #+#    #+#             */
-/*   Updated: 2023/01/24 21:01:49 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:37:06 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _ZOMBIE_HPP
-# define _ZOMBIE_HPP
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 # include <iostream>
 # include <string>
 # include <cstdlib>
@@ -27,10 +27,10 @@ class Zombie
 {
 public:
 	void	announce(void);
-	Zombie* zombieHorde(int N, std::string name);
-
+	void	setname(std::string name);
+	~Zombie();
 private:
-	std::string	name;
+	std::string	_name;
 };
 
 #endif

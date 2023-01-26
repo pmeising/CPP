@@ -6,7 +6,7 @@
 #    By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 12:13:04 by pmeising          #+#    #+#              #
-#    Updated: 2023/01/24 21:39:24 by pmeising         ###   ########.fr        #
+#    Updated: 2023/01/25 19:51:39 by pmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,16 +18,21 @@ CFLAGS		:= -Werror -Wextra -Wall -g -std=c++98
 
 RM			:= rm
 
-SRCS		:=	./main.cpp \
+SRCS		:=	./Weapon.cpp ./HumanA.cpp ./HumanB.cpp ./main.cpp \
+
+OBJS		:= ${SRCS:.cpp=.o}
 
 all:		$(NAME)
 
 .PHONY:		all clean fclean re
 
-$(NAME):
-			${C++} ${CFLAGS} -o ${NAME} ${SRCS}
+$(NAME):	${OBJS}
+			${C++} ${CFLAGS} ${SRCS} -o ${NAME}
 
 re:			fclean all
 
-fclean:
-			$(RM) $(NAME)
+clean:
+			$(RM) ${OBJS}
+
+fclean:		clean
+			$(RM) ${NAME}

@@ -6,19 +6,19 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 21:50:53 by pmeising          #+#    #+#             */
-/*   Updated: 2023/01/24 22:10:29 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/01/25 20:01:02 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
+#include "Weapon.hpp"
 
-HumanA::HumanA(std::string name, Weapon Weapon)
+HumanA::HumanA(std::string name, Weapon& type) : _weapon (type) , _name (name)
 {
-	HumanA::name = name;
-	HumanA::Weapon = Weapon;
+	std::cout << _name << " has been created. They wield a '" << _weapon.getType() << "'\n";
 }
 
 void	HumanA::attack()
 {
-	std::cout << name << " attacks with their " << Weapon.getType() << std::endl;
+	std::cout << _name << " attacks with their '" << _weapon.getType() << "'\n";
 }
