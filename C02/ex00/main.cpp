@@ -5,31 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 20:28:54 by pmeising          #+#    #+#             */
-/*   Updated: 2023/01/30 18:30:04 by pmeising         ###   ########.fr       */
+/*   Created: 2023/01/27 11:15:41 by pmeising          #+#    #+#             */
+/*   Updated: 2023/01/27 13:07:33 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include "ZombieHorde.h"
+#include "Fixed.hpp"
 
 int	main(int argc, char **argv)
 {
-	Zombie		*Zombie_ptr;
-	int			i = 0;
+	Fixed fpn1(4);
+	Fixed fpn2(2);
 
-	if (argc == 3)
-	{
-		int			N = atoi(argv[1]);
-		std::string	name = argv[2];
-		Zombie_ptr = zombieHorde(N, name);
-		while (i < N)
-		{
-			Zombie_ptr[i].announce();
-			i++;
-		}
-		std::cout << "Created " << i << " Zombies.\n";
-		delete[] Zombie_ptr; // The [] make sure the entire array is being freed up.
-	}
+	std::cout << fpn1.getRawBits() << "\n";
+	Fixed	fpn3 = fpn2;
+	std::cout << fpn2.getRawBits() << "\n";
+	std::cout << fpn3.getRawBits() << "\n";
 	return (0);
 }
+
+// int main( void )
+// {
+// 	Fixed a; // Calls default constructor
+// 	Fixed b(a); // Calls copy constructor
+// 	Fixed c; // Calls default constructor
+
+// 	c = b;
+// 	std::cout << a.getRawBits() << std::endl;
+// 	std::cout << b.getRawBits() << std::endl;
+// 	std::cout << c.getRawBits() << std::endl;
+// 	return 0;
+// }

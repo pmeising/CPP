@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 17:17:20 by pmeising          #+#    #+#             */
-/*   Updated: 2023/01/24 19:06:56 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:49:06 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,14 @@
 class Zombie
 {
 public:
+	Zombie();
+	~Zombie();
 	void	announce(void);
-	Zombie*	newZombie(std::string name);
-	void	randomChump(std::string name);
+	void	setName(std::string name);
 
 private:
-	std::string	name;
-	std::string	temp;
+	std::string	_name;
+	std::string	_temp;
 };
 
 #endif

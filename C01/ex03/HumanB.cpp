@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 22:14:32 by pmeising          #+#    #+#             */
-/*   Updated: 2023/01/25 20:02:35 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/01/30 18:37:18 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 HumanB::HumanB(std::string name) : _name (name)
 {
 	std::cout << _name << " has been created.\n";
+}
+
+HumanB::~HumanB()
+{
+	std::cout << "Default destructor called HumanB.\n";
 }
 
 void	HumanB::setWeapon(Weapon& weapon_type)

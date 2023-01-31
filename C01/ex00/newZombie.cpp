@@ -6,16 +6,17 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 17:20:36 by pmeising          #+#    #+#             */
-/*   Updated: 2023/01/24 19:07:33 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:45:34 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Zombie.h"
 #include "Zombie.hpp"
 
-Zombie*	Zombie::newZombie(std::string name)
+Zombie*	newZombie(std::string name)
 {
 	Zombie	*Zombie_ptr = new Zombie;
 
-	Zombie_ptr->name = name;
+	Zombie_ptr->setName(name);
 	return (Zombie_ptr);
 }

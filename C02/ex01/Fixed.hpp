@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 21:40:26 by pmeising          #+#    #+#             */
-/*   Updated: 2023/01/30 18:38:09 by pmeising         ###   ########.fr       */
+/*   Created: 2023/01/27 10:36:14 by pmeising          #+#    #+#             */
+/*   Updated: 2023/01/27 13:03:28 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
-
+#ifndef Fixed_HPP
+# define Fixed_HPP
 # include <string>
 # include <iostream>
+# include <cmath>
 
-class Weapon
+class Fixed
 {
 	public:
-		Weapon();
-		~Weapon();
-		Weapon(std::string weapon_type);
-		const std::string&	getType();
-		void	setType(std::string type);
-
+		Fixed();
+		Fixed(const int value);
+		Fixed(const float value);
+		Fixed(const Fixed& FPN_object);
+		Fixed& operator=(const Fixed& rhs);
+		~Fixed();
+		int	getRawBits(void) const;
+		void	setRawBits(int const raw);
+		float	toFloat(void) const;
+		int		toInt(void) const;
+	
 	private:
-		std::string	_type;
+		int					_value;
+		static const int	_nbFracBits = 8;
 };
+
+std::ostream& operator<<(std::ostream &stream, const Fixed& out);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 21:40:26 by pmeising          #+#    #+#             */
-/*   Updated: 2023/01/25 19:58:25 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/01/30 18:36:12 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class	HumanA
 {
 	public:
 		HumanA(std::string name, Weapon& type);
+		~HumanA();
 		void	attack(void);
 	private:
 		Weapon&		_weapon;

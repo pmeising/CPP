@@ -6,7 +6,7 @@
 #    By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 12:13:04 by pmeising          #+#    #+#              #
-#    Updated: 2023/01/25 18:29:28 by pmeising         ###   ########.fr        #
+#    Updated: 2023/01/30 18:32:55 by pmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS		:= -Werror -Wextra -Wall -g -std=c++98
 
 RM			:= rm
 
-SRCS		:=	./main.cpp ./Zombie.cpp ./zombieHorde.cpp \
+SRCS		:=	./Zombie.cpp ./main.cpp ./ZombieHorde.cpp \
 
 OBJS		:= ${SRCS:.cpp=.o}
 
@@ -27,7 +27,7 @@ all:		$(NAME)
 .PHONY:		all clean fclean re
 
 $(NAME):	${OBJS}
-			${C++} ${CFLAGS} -o ${NAME} ${SRCS}
+			${C++} ${CFLAGS} ${SRCS} -o ${NAME}
 
 re:			fclean all
 
