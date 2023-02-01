@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:15:41 by pmeising          #+#    #+#             */
-/*   Updated: 2023/01/30 17:38:19 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/01 18:36:10 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ bool	ft_in_triangle(Point& a, Point& b, Point& c, Point& p)
 	float	A_2 = abs(((a.getX().toFloat() * (p.getY().toFloat() - c.getY().toFloat())) + (p.getX().toFloat() * (c.getY().toFloat() - a.getY().toFloat())) + (c.getX().toFloat() * (a.getY().toFloat() - p.getY().toFloat()))) / 2.0);
 	// replace c
 	float	A_3 = abs(((a.getX().toFloat() * (b.getY().toFloat() - p.getY().toFloat())) + (b.getX().toFloat() * (p.getY().toFloat() - a.getY().toFloat())) + (p.getX().toFloat() * (a.getY().toFloat() - b.getY().toFloat()))) / 2.0);
-	std::cout << "A_1, A_2, A_3 and A: " << A_1 << " " << A_2 << " " << A_3 << " " << A << " \n";
+	// std::cout << "A_1, A_2, A_3 and A: " << A_1 << " " << A_2 << " " << A_3 << " " << A << " \n";
 	if ((A_1 + A_2 + A_3) == A)
 		return true;
 	return false;

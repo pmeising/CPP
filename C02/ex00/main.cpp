@@ -6,13 +6,13 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:15:41 by pmeising          #+#    #+#             */
-/*   Updated: 2023/01/27 13:07:33 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/01 18:22:59 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int	main(int argc, char **argv)
+int	main()
 {
 	Fixed fpn1(4);
 	Fixed fpn2(2);
