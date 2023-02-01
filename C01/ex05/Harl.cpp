@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:55:59 by pmeising          #+#    #+#             */
-/*   Updated: 2023/01/26 19:48:25 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:47:57 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,16 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-	int	lvl = 0;
+	std::string	array[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-	if (level == "DEBUG")
-		lvl = 1;
-	else if (level == "INFO")
-		lvl = 2;
-	else if (level == "WARNING")
-		lvl = 3;
-	else if (level == "ERROR")
-		lvl = 4;
-	switch (lvl)
+	int i;
+	for (i = 0; i < 4; i++)
+	{
+		if (level == array[i])
+			break;
+	}
+	i++;
+	switch (i)
 	{
 		case 1:
 			function = &Harl::debug;

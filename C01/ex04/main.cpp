@@ -6,11 +6,13 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 20:07:36 by pmeising          #+#    #+#             */
-/*   Updated: 2023/01/26 18:19:22 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/01 13:00:40 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Program.hpp"
+#include <iostream>
+#include <string>
+#include <fstream>
 
 void	ft_str_replace(std::string& str, int& i, int& check, char *s1, char *s2)
 {

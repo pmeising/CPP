@@ -6,33 +6,41 @@
 #    By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 12:13:04 by pmeising          #+#    #+#              #
-#    Updated: 2023/01/25 19:51:39 by pmeising         ###   ########.fr        #
+#    Updated: 2023/02/01 17:52:53 by pmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= Unnecessary_violence
 
-C++			:= c++
+SRC 		= 	main.cpp \
+				HumanA.cpp \
+				HumanB.cpp \
+				Weapon.cpp \
+				
+OBJS 		= 	${SRC:.cpp=.o}
 
-CFLAGS		:= -Werror -Wextra -Wall -g -std=c++98
+HEADERS		=	HumanA.hpp HumanB.hpp Weapon.hpp
 
-RM			:= rm
+FLAGS		=	-Wall -Wextra -Werror -std=c++98
 
-SRCS		:=	./Weapon.cpp ./HumanA.cpp ./HumanB.cpp ./main.cpp \
+CPP			=	c++
 
-OBJS		:= ${SRCS:.cpp=.o}
+RM 			= 	rm -f
 
-all:		$(NAME)
+%.o:			%.cpp ${HEADERS}
+				${CPP} -c ${FLAGS} -I. $< -o ${<:.cpp=.o}
 
-.PHONY:		all clean fclean re
+${NAME}:		${OBJS}
+				${CPP} ${FLAGS} ${OBJS} -o ${NAME}
 
-$(NAME):	${OBJS}
-			${C++} ${CFLAGS} ${SRCS} -o ${NAME}
-
-re:			fclean all
+all:			${NAME}
 
 clean:
-			$(RM) ${OBJS}
+				${RM} ${OBJS}
 
-fclean:		clean
-			$(RM) ${NAME}
+fclean:			clean
+				${RM} ${NAME}
+
+re:				fclean all
+
+.PHONY:			all clean fclean re

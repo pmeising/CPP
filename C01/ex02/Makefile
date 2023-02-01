@@ -6,33 +6,36 @@
 #    By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 12:13:04 by pmeising          #+#    #+#              #
-#    Updated: 2023/01/25 18:29:43 by pmeising         ###   ########.fr        #
+#    Updated: 2023/02/01 17:53:55 by pmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= HI_THIS_IS_BRIAN
 
-C++			:= c++
+SRC 		= 	main.cpp \
+				
+OBJS 		= 	${SRC:.cpp=.o}
 
-CFLAGS		:= -Werror -Wextra -Wall -g -std=c++98
+FLAGS		=	-Wall -Wextra -Werror -std=c++98
 
-RM			:= rm
+CPP			=	c++
 
-SRCS		:=	./main.cpp \
+RM 			= 	rm -f
 
-OBJS		:= ${SRCS:.cpp=.o}
+%.o:			%.cpp
+				${CPP} -c ${FLAGS} -I. $< -o ${<:.cpp=.o}
 
-all:		$(NAME)
+${NAME}:		${OBJS}
+				${CPP} ${FLAGS} ${OBJS} -o ${NAME}
 
-.PHONY:		all clean fclean re
-
-$(NAME):	${OBJS}
-			${C++} ${CFLAGS} -o ${NAME} ${SRCS}
-
-re:			fclean all
+all:			${NAME}
 
 clean:
-			$(RM) ${OBJS}
+				${RM} ${OBJS}
 
-fclean:		clean
-			$(RM) ${NAME}
+fclean:			clean
+				${RM} ${NAME}
+
+re:				fclean all
+
+.PHONY:			all clean fclean re

@@ -1,38 +1,29 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/20 12:13:04 by pmeising          #+#    #+#              #
-#    Updated: 2023/01/26 10:13:19 by pmeising         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME		:= FileCopy
 
-NAME		:= Program
+SRC 		= 	main.cpp \
+				
+OBJS 		= 	${SRC:.cpp=.o}
 
-C++			:= c++
+FLAGS		=	-Wall -Wextra -Werror -std=c++98
 
-CFLAGS		:= -Werror -Wextra -Wall -g -std=c++98
+CPP			=	c++
 
-RM			:= rm
+RM 			= 	rm -f
 
-SRCS		:= ./main.cpp Program.cpp \
+%.o:			%.cpp
+				${CPP} -c ${FLAGS} -I. $< -o ${<:.cpp=.o}
 
-OBJS		:= ${SRCS:.cpp=.o}
+${NAME}:		${OBJS}
+				${CPP} ${FLAGS} ${OBJS} -o ${NAME}
 
-all:		$(NAME)
-
-.PHONY:		all clean fclean re
-
-$(NAME):	${OBJS}
-			${C++} ${CFLAGS} ${SRCS} -o ${NAME}
-
-re:			fclean all
+all:			${NAME}
 
 clean:
-			$(RM) ${OBJS}
+				${RM} ${OBJS}
 
-fclean:		clean
-			$(RM) ${NAME}
+fclean:			clean
+				${RM} ${NAME}
+
+re:				fclean all
+
+.PHONY:			all clean fclean re

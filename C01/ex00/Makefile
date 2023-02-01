@@ -6,36 +6,41 @@
 #    By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 12:13:04 by pmeising          #+#    #+#              #
-#    Updated: 2023/01/25 18:28:15 by pmeising         ###   ########.fr        #
+#    Updated: 2023/02/01 18:04:51 by pmeising         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= BraiiiiiinZ
 
-C++			:= c++
+SRC 		= 	main.cpp \
+				newZombie.cpp \
+				randomChump.cpp \
+				Zombie.cpp \
+				
+OBJS 		= 	${SRC:.cpp=.o}
 
-CFLAGS		:= -Werror -Wextra -Wall -g -std=c++98
+HEADERS		=	Zombie.h Zombie.hpp
 
-RM			:= rm -f
+FLAGS		=	-Wall -Wextra -Werror -std=c++98
 
-SRCS		:=	./main.cpp \
-				./Zombie.cpp \
-				./newZombie.cpp \
-				./randomChump.cpp \
+CPP			=	c++
 
-OBJS		:= ${SRCS:.cpp=.o}
+RM 			= 	rm -f
 
-all:		$(NAME)
+%.o:			%.cpp ${HEADERS}
+				${CPP} -c ${FLAGS} -I. $< -o ${<:.cpp=.o}
 
-.PHONY:		all clean fclean re
+${NAME}:		${OBJS}
+				${CPP} ${FLAGS} ${OBJS} -o ${NAME}
 
-$(NAME):	${OBJS}
-			${C++} ${CFLAGS} -o ${NAME} ${SRCS}
-
-re:			fclean all
+all:			${NAME}
 
 clean:
-			$(RM) ${OBJS}
+				${RM} ${OBJS}
 
-fclean:		clean
-			$(RM) ${NAME}
+fclean:			clean
+				${RM} ${NAME}
+
+re:				fclean all
+
+.PHONY:			all clean fclean re

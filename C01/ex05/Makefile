@@ -1,26 +1,32 @@
-NAME		:= Harl_2.0
+NAME 		= 	Harl_2_0
 
-C++			:= c++
+SRC 		= 	main.cpp \
+				Harl.cpp \
+				
+OBJS 		= 	${SRC:.cpp=.o}
 
-CFLAGS		:= -Werror -Wextra -Wall -g -std=c++98
+HEADERS		=	Harl.hpp
 
-RM			:= rm
+FLAGS		=	-Wall -Wextra -Werror -std=c++98
 
-SRCS		:=	./main.cpp ./Harl.cpp \
+CPP			=	c++
 
-OBJS		:= ${SRCS:.cpp=.o}
+RM 			= 	rm -f
 
-all:		$(NAME)
+%.o:			%.cpp ${HEADERS}
+				${CPP} -c ${FLAGS} -I. $< -o ${<:.cpp=.o}
 
-.PHONY:		all clean fclean re
+${NAME}:		${OBJS}
+				${CPP} ${FLAGS} ${OBJS} -o ${NAME}
 
-$(NAME):	${OBJS}
-			${C++} ${CFLAGS} -o ${NAME} ${SRCS}
-
-re:			fclean all
+all:			${NAME}
 
 clean:
-			$(RM) ${OBJS}
+				${RM} ${OBJS}
 
-fclean:		clean
-			$(RM) ${NAME}
+fclean:			clean
+				${RM} ${NAME}
+
+re:				fclean all
+
+.PHONY:			all clean fclean re
