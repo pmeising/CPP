@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 12:12:11 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/01 20:17:31 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/01 20:35:33 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ void	ClapTrap::takeDamage(unsigned int amount)
 {
 	std::cout << "ClapTrap " << this->getName() << " suffers " << amount << " points of damage to hit points! ";
 	this->setHitPoints(this->getHitPoints() - amount);
-	if (this->getHitPoints() < 1)
-		std::cout << "This renders it unable to continue the fight. (i.e. 0 Hitpoints left)\n";
+	if (this->getHitPoints() < 1 || this->getHitPoints() > 100000)
+		std::cout << "This renders them unable to continue the fight. (i.e. 0 Hitpoints left)\n";
 	else
 		std::cout << "And is still standing strong at " << this->getHitPoints() << " hit points!\n";
 }

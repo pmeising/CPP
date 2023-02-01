@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:55:23 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/01 19:37:12 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/01 20:36:40 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGRAP_HPP
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
 	public:
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap& object);
-		ScavTrap&	operator=(const ScavTrap& rhs); // Again, rhs stands for right-hand-side.
-		~ScavTrap();
+		FragTrap();
+		FragTrap(std::string name);
+		FragTrap(const FragTrap& object);
+		FragTrap&	operator=(const FragTrap& rhs); // Again, rhs stands for right-hand-side.
+		~FragTrap();
 		
 		void	attack(const std::string& target);
-		void	guardGate();
+		void	highFivesGuys(void);
 
 	private:
 };

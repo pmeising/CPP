@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 18:55:23 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/01 19:37:12 by pmeising         ###   ########.fr       */
+/*   Created: 2023/02/01 20:47:54 by pmeising          #+#    #+#             */
+/*   Updated: 2023/02/01 22:23:38 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
-# include "ClapTrap.hpp"
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONTRAP_HPP
+# include "FragTrap.hpp"
+# include "ScavTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 	public:
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap& object);
-		ScavTrap&	operator=(const ScavTrap& rhs); // Again, rhs stands for right-hand-side.
-		~ScavTrap();
-		
+		DiamondTrap();
+		DiamondTrap(std::string name);
+		DiamondTrap(const DiamondTrap& object);
+		DiamondTrap&	operator=(const DiamondTrap& rhs); // Again, rhs stands for right-hand-side.
+		~DiamondTrap();
 		void	attack(const std::string& target);
-		void	guardGate();
-
+		void	whoAmI();
+	
 	private:
+		std::string	_name;
 };
 
 #endif

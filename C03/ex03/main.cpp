@@ -6,19 +6,25 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 17:34:18 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/01 20:19:29 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/01 22:23:53 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+// #include "ScavTrap.hpp"
+// #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main()
 {
 	ClapTrap	Jon("Jon");
 	ScavTrap	Marvin("Marvin");
+	FragTrap	Barney("Barney");
+	DiamondTrap	Diamond_Hands("Diamond_Hands");
 
 	std::cout << Jon.getName() << ", Hit Points: " << Jon.getHitPoints() << ", Energy Points: " << Jon.getEnergyPoints() << ", Attack Damage: " << Jon.getAttackDamage() << "\n";
 	std::cout << Marvin.getName() << ", Hit Points: " << Marvin.getHitPoints() << ", Energy Points: " << Marvin.getEnergyPoints() << ", Attack Damage: " << Marvin.getAttackDamage() << "\n";
+	std::cout << Barney.getName() << ", Hit Points: " << Barney.getHitPoints() << ", Energy Points: " << Barney.getEnergyPoints() << ", Attack Damage: " << Barney.getAttackDamage() << "\n";
+	std::cout << Diamond_Hands.ScavTrap::getName() << ", Hit Points: " << Diamond_Hands.ScavTrap::getHitPoints() << ", Energy Points: " << Diamond_Hands.ScavTrap::getEnergyPoints() << ", Attack Damage: " << Diamond_Hands.ScavTrap::getAttackDamage() << "\n";
 
 	std::cout << "\nJon picks up a sword!\n\n";
 	Jon.setAttackDamage(5);
@@ -42,5 +48,26 @@ int	main()
 	Marvin.attack("Jon");
 	Jon.takeDamage(Marvin.getAttackDamage());
 	// Marvin.attack("the wall");
+
+	Barney.attack("Jon");
+	Jon.takeDamage(Barney.getAttackDamage());
+	
+	// Things that won't work:
+	// Jon.guardGate();
+	Marvin.guardGate();
+	// Barney.guardGate();
+
+	// Jon.highFivesGuys();
+	// Marvin.highFivesGuys();
+	Barney.highFivesGuys();
+	
+	std::cout << "DiamondHands can do anything, watch!!\n";
+
+	Diamond_Hands.guardGate();
+	Diamond_Hands.highFivesGuys();
+	Diamond_Hands.attack("The fabric of space");
+	Diamond_Hands.whoAmI();
+
+	
 	return (0);
 }

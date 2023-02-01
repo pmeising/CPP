@@ -1,12 +1,13 @@
-NAME		:= ScavTrap
+NAME		:= FragTrap
 
 SRC 		:=	main.cpp \
 				ClapTrap.cpp \
 				ScavTrap.cpp \
+				FragTrap.cpp \
 				
 OBJS 		:= 	${SRC:.cpp=.o}
 
-HEADERS		:=	ClapTrap.hpp ScavTrap.hpp
+HEADERS		:=	ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 
 FLAGS		:=	-Wall -Wextra -Werror -std=c++98
 
