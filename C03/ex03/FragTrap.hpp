@@ -6,12 +6,12 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 18:55:23 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/01 20:36:40 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/03 15:07:33 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_HPP
-# define FRAGRAP_HPP
+# define FRAGTRAP_HPP
 # include "ClapTrap.hpp"
 
 class FragTrap : public ClapTrap

@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 18:55:23 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 14:49:57 by pmeising         ###   ########.fr       */
+/*   Created: 2023/02/02 16:43:16 by pmeising          #+#    #+#             */
+/*   Updated: 2023/02/03 15:33:47 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
-# include "ClapTrap.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
 
-class FragTrap : public ClapTrap
+int main()
 {
-	public:
-		FragTrap();
-		FragTrap(std::string name);
-		FragTrap(const FragTrap& object);
-		FragTrap&	operator=(const FragTrap& rhs); // Again, rhs stands for right-hand-side.
-		~FragTrap();
-		
-		void	attack(const std::string& target);
-		void	highFivesGuys(void);
+	const	Animal	*Carl = new Animal();
+	const	Cat		*Kitty = new Cat();
+	const	Cat		*Birdie;
 
-	private:
-};
+	// This shows, that the Brain constructor is not called when an Animal instance (i.e. Carl) is instanciated.
 
-#endif
+	Carl->makeSound();
+	Kitty->makeSound();
+	*Birdie = *Kitty;
+	Birdie->makeSound();
+	delete Carl;
+	delete Kitty;
+	return 0;
+}

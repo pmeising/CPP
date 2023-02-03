@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 11:54:03 by pmeising          #+#    #+#             */
-/*   Updated: 2023/01/31 18:13:17 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/03 15:04:35 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class	ClapTrap
 
 		void			attack(const std::string& target);
 		void			takeDamage(unsigned int amount);
-		void			beRepaied(unsigned int amount);
+		void			beRepaired(unsigned int amount);
 		void			setAttackDamage(unsigned int points);
 		void			setName(std::string name);
 		void			setHitPoints(unsigned int points);

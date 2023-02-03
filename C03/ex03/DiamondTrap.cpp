@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 22:03:22 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/01 22:26:27 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:00:30 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 DiamondTrap::DiamondTrap()
 {
 	std::cout << B_GREEN << "DiamondTrap: Default constructor called.\n";
+	this->FragTrap::setName(FragTrap::getName() + "_clap_name");
 	this->FragTrap::setHitPoints(FragTrap::getHitPoints());
 	this->ScavTrap::setEnergyPoints(ScavTrap::getEnergyPoints());
 	this->FragTrap::setAttackDamage(FragTrap::getAttackDamage());
@@ -26,7 +27,10 @@ DiamondTrap::DiamondTrap(std::string name)
 	this->FragTrap::setHitPoints(FragTrap::getHitPoints());
 	this->ScavTrap::setEnergyPoints(ScavTrap::getEnergyPoints());
 	this->FragTrap::setAttackDamage(FragTrap::getAttackDamage());
-	this->ScavTrap::setName(name);
+	// this->FragTrap::setName(name + (std::string)("_clap_name"));
+	// Because I use the ScavTrap get name function in the main.cpp, I need to use the ScavTrap Set name function.
+	this->ScavTrap::setName(name + (std::string)("_clap_name"));
+	this->DiamondTrap::setName(name);
 }
 
 // Same thing here we need to call    !! both !!   Copy constructors of the base classes for this to work.
@@ -63,5 +67,15 @@ void	DiamondTrap::attack(const std::string& target)
 
 void	DiamondTrap::whoAmI(void)
 {
-	std::cout << "DiamondTrap: My name is: " << this->ScavTrap::getName() << " my ClapTrap name however is: \n";
+	std::cout << "DiamondTrap: My name is: " << this->_name << " my ClapTrap name however is: " << ScavTrap::getName() << "\n";
+}
+
+void	DiamondTrap::setName(std::string& name)
+{
+	this->_name = name;
+}
+
+std::string&	DiamondTrap::getName(void)
+{
+	return (this->_name);
 }

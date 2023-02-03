@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 17:34:18 by pmeising          #+#    #+#             */
-/*   Updated: 2023/01/31 18:27:27 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/03 15:06:23 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main()
 		Homer.attack("Bart");
 		Bart.takeDamage(Homer.getAttackDamage());
 		std::cout << B_GREEN;
-		Bart.beRepaied(1);
+		Bart.beRepaired(1);
 		std::cout << B_BLUE;
 		i++;
 	}
@@ -50,8 +50,8 @@ int	main()
 	std::cout << DEFAULT << "Lisa and Maggie pity their brother and play 'Homer Piñata' \n\n'";
 	
 	Bart.setEnergyPoints(1);
-	Bart.beRepaied(2);
-	Lisa.beRepaied(3);
+	Bart.beRepaired(2);
+	Lisa.beRepaired(3);
 	std::cout << B_GREEN << "Maggie eats a protein bar from her baby food drawer.\n\n" << DEFAULT;
 	Maggie.setAttackDamage(10);
 	Maggie.attack("Homer");
@@ -60,7 +60,7 @@ int	main()
 	std::cout << "After a long day of parenting and not having 0 children and 3 money, Homer sits down to eat.\n\n" << B_GREEN;
 
 	Homer.setEnergyPoints(1);
-	Homer.beRepaied(100);
+	Homer.beRepaired(100);
 	
 	std::cout << DEFAULT;
 	

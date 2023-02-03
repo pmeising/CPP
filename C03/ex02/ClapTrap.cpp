@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 12:12:11 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/01 20:35:33 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/03 15:06:23 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		std::cout << "And is still standing strong at " << this->getHitPoints() << " hit points!\n";
 }
 
-void	ClapTrap::beRepaied(unsigned int amount)
+void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->getHitPoints() < 1)
 		std::cout << "ClapTrap " << this->getName() << " is no longer with any hit points.\n";

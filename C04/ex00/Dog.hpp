@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 18:55:23 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 14:49:57 by pmeising         ###   ########.fr       */
+/*   Created: 2023/02/02 16:35:54 by pmeising          #+#    #+#             */
+/*   Updated: 2023/02/03 11:24:30 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
-# include "ClapTrap.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
+# include "Animal.hpp"
 
-class FragTrap : public ClapTrap
+class	Dog : public Animal
 {
 	public:
-		FragTrap();
-		FragTrap(std::string name);
-		FragTrap(const FragTrap& object);
-		FragTrap&	operator=(const FragTrap& rhs); // Again, rhs stands for right-hand-side.
-		~FragTrap();
-		
-		void	attack(const std::string& target);
-		void	highFivesGuys(void);
-
-	private:
+		Dog();
+		Dog(const Dog& obj);
+		Dog&	operator=(const Dog& rhs);
+		~Dog();
+		void	makeSound() const;
 };
 
 #endif

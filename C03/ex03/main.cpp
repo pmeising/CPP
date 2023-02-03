@@ -6,12 +6,10 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 17:34:18 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/01 22:23:53 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:56:06 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "ScavTrap.hpp"
-// #include "FragTrap.hpp"
 #include "DiamondTrap.hpp"
 
 int	main()
@@ -24,7 +22,7 @@ int	main()
 	std::cout << Jon.getName() << ", Hit Points: " << Jon.getHitPoints() << ", Energy Points: " << Jon.getEnergyPoints() << ", Attack Damage: " << Jon.getAttackDamage() << "\n";
 	std::cout << Marvin.getName() << ", Hit Points: " << Marvin.getHitPoints() << ", Energy Points: " << Marvin.getEnergyPoints() << ", Attack Damage: " << Marvin.getAttackDamage() << "\n";
 	std::cout << Barney.getName() << ", Hit Points: " << Barney.getHitPoints() << ", Energy Points: " << Barney.getEnergyPoints() << ", Attack Damage: " << Barney.getAttackDamage() << "\n";
-	std::cout << Diamond_Hands.ScavTrap::getName() << ", Hit Points: " << Diamond_Hands.ScavTrap::getHitPoints() << ", Energy Points: " << Diamond_Hands.ScavTrap::getEnergyPoints() << ", Attack Damage: " << Diamond_Hands.ScavTrap::getAttackDamage() << "\n";
+	std::cout << Diamond_Hands.ScavTrap::getName() << ", " << Diamond_Hands.DiamondTrap::getName() << ", Hit Points: " << Diamond_Hands.ScavTrap::getHitPoints() << ", Energy Points: " << Diamond_Hands.ScavTrap::getEnergyPoints() << ", Attack Damage: " << Diamond_Hands.ScavTrap::getAttackDamage() << "\n";
 
 	std::cout << "\nJon picks up a sword!\n\n";
 	Jon.setAttackDamage(5);

@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongDog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 18:55:23 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 14:49:57 by pmeising         ###   ########.fr       */
+/*   Created: 2023/02/02 16:35:54 by pmeising          #+#    #+#             */
+/*   Updated: 2023/02/03 11:24:30 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
-# include "ClapTrap.hpp"
+#ifndef WRONGDOG_HPP
+# define WRONGDOG_HPP
+# include "WrongAnimal.hpp"
 
-class FragTrap : public ClapTrap
+class	WrongDog : public WrongAnimal
 {
 	public:
-		FragTrap();
-		FragTrap(std::string name);
-		FragTrap(const FragTrap& object);
-		FragTrap&	operator=(const FragTrap& rhs); // Again, rhs stands for right-hand-side.
-		~FragTrap();
-		
-		void	attack(const std::string& target);
-		void	highFivesGuys(void);
-
-	private:
+		WrongDog();
+		WrongDog(const WrongDog& obj);
+		WrongDog&	operator=(const WrongDog& rhs);
+		~WrongDog();
+		void	makeSound() const;
 };
 
 #endif
