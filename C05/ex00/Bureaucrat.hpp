@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 16:34:47 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 22:37:31 by pmeising         ###   ########.fr       */
+/*   Created: 2023/02/03 23:00:58 by pmeising          #+#    #+#             */
+/*   Updated: 2023/02/03 23:04:52 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
-# include "Animal.hpp"
-# include "Brain.hpp"
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
+# include <string>
+# include <iostream>
 
-class	Cat : public Animal
+class	Bureaucrat
 {
 	public:
-		Cat();
-		Cat(const Cat& obj);
-		Cat&	operator=(const Cat& rhs);
-		virtual ~Cat();
-		void	makeSound() const;
-		void	haveThought(std::string thought) const;
-		void	voiceThought(int i) const;
+		Bureaucrat();
+		Bureaucrat(const Bureaucrat& obj);
+		Bureaucrat& operator=(const Bureaucrat& rhs);
+		~Bureaucrat();
+		std::string	getName(void) const;
+		unsigned int	getGrade(void) const;
 
 	private:
-		Brain	*_Brain;
+		const std::string	_name;
+		unsigned int		_grade;
 };
 
 #endif

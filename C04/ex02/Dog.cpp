@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:40:16 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 22:26:13 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:52:16 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Dog::Dog()
 	this->_Brain = new Brain;
 }
 
-Dog::Dog(const Dog& obj) : Animal()
+Dog::Dog(const Dog& obj) : aAnimal()
 {
 	std::cout << B_GREEN << "Dog: Copy constructor called. Brain malloced\n" << DEFAULT;
 	this->setType(obj.getType());

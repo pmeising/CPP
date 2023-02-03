@@ -1,61 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongDog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:40:16 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 22:26:13 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/03 11:44:56 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongDog.hpp"
 
-Dog::Dog()
+WrongDog::WrongDog()
 {
-	std::cout << B_GREEN << "Dog: Default constructor called. Brain malloced.\n" << DEFAULT;
-	this->setType((std::string)("Dog"));
-	this->_Brain = new Brain;
+	std::cout << B_GREEN << "WrongDog: Default constructor called.\n" << DEFAULT;
+	this->setType((std::string)("WrongDog"));
 }
 
-Dog::Dog(const Dog& obj) : Animal()
+WrongDog::WrongDog(const WrongDog& obj) : WrongAnimal()
 {
-	std::cout << B_GREEN << "Dog: Copy constructor called. Brain malloced\n" << DEFAULT;
+	std::cout << B_GREEN << "WrongDog: Copy constructor called. \n" << DEFAULT;
 	this->setType(obj.getType());
-	this->_Brain = new Brain;
-	*_Brain = *(obj._Brain);
 }
 
-Dog::~Dog()
+WrongDog::~WrongDog()
 {
-	std::cout << B_RED << "Dog: Default destructor called.\n" << DEFAULT;
-	delete _Brain;
+	std::cout << B_RED << "WrongDog: Default destructor called.\n" << DEFAULT;
 }
 
 // #################### Operator overloads #################################
 
-Dog& Dog::operator=(const Dog& rhs)
+WrongDog& WrongDog::operator=(const WrongDog& rhs)
 {
-	std::cout << "Dog: Assignment operator overload called.p\n" << DEFAULT;
+	std::cout << "WrongDog: Assignment operator overload called.p\n" << DEFAULT;
 	this->setType(rhs.getType());
-	this->_Brain = rhs._Brain;
 	return (*this);
 }
 
 // ####################### Member functions ####################################
 
-void Dog::makeSound(void) const
+void WrongDog::makeSound(void) const
 {
 	std::cout << "Wuff...\n";
 }
 
-void	Dog::haveThought(std::string thought)
-{
-	_Brain->setIdea(thought);
-}
-
-void	Dog::voiceThought(int i)
-{
-	std::cout << _Brain->getIdea(i) << "\n";
-}

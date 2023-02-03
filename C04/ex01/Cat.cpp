@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:38:29 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 15:23:16 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/03 22:41:04 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ Cat::Cat(const Cat& obj) : Animal()
 {
 	std::cout << B_GREEN << "Cat: Copy constructor called. \n" << DEFAULT;
 	this->setType(obj.getType());
-	this->_Brain = obj._Brain;
+	this->_Brain = new Brain;
+	*_Brain = *(obj._Brain);
 	// ^^^^^ This should call the copy constructor of Brain.
 }
 
@@ -38,9 +39,10 @@ Cat::~Cat()
 
 Cat& Cat::operator=(const Cat& rhs)
 {
-	std::cout << "Cat: Assignment operator overload called.p\n" << DEFAULT;
+	std::cout << B_GREEN << "Cat: Assignment operator overload called.\n" << DEFAULT;
 	this->setType(rhs.getType());
-	this->_Brain = rhs._Brain;
+	this->_Brain = new Brain;
+	*_Brain = *(rhs._Brain);
 	return (*this);
 }
 
@@ -49,4 +51,14 @@ Cat& Cat::operator=(const Cat& rhs)
 void Cat::makeSound(void) const
 {
 	std::cout << "Miao...\n";
+}
+
+void	Cat::haveThought(std::string thought) const
+{
+	_Brain->setIdea(thought);
+}
+
+void	Cat::voiceThought(int i) const
+{
+	std::cout << _Brain->getIdea(i) << "\n";
 }

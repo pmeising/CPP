@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:35:54 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 15:23:32 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/03 22:26:13 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class	Dog : public Animal
 		Dog&	operator=(const Dog& rhs);
 		~Dog();
 		void	makeSound() const;
+		void	haveThought(std::string thought);
+		void	voiceThought(int i);
 
 	private:
 		Brain	*_Brain;

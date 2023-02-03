@@ -6,12 +6,12 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:47:54 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/02 14:59:32 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/03 16:11:24 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIAMONDTRAP_HPP
-# define DIAMONTRAP_HPP
+# define DIAMONDTRAP_HPP
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 

@@ -1,43 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 16:40:16 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 22:26:13 by pmeising         ###   ########.fr       */
+/*   Created: 2023/02/02 16:38:29 by pmeising          #+#    #+#             */
+/*   Updated: 2023/02/03 22:18:42 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cat.hpp"
 
-Dog::Dog()
+Cat::Cat()
 {
-	std::cout << B_GREEN << "Dog: Default constructor called. Brain malloced.\n" << DEFAULT;
-	this->setType((std::string)("Dog"));
+	std::cout << B_GREEN << "Cat: Default constructor called.\n" << DEFAULT;
+	this->setType((std::string)("Cat"));
 	this->_Brain = new Brain;
+	// Can't name the variable equal to the class name, that won't work.
 }
 
-Dog::Dog(const Dog& obj) : Animal()
+Cat::Cat(const Cat& obj) : aAnimal()
 {
-	std::cout << B_GREEN << "Dog: Copy constructor called. Brain malloced\n" << DEFAULT;
+	std::cout << B_GREEN << "Cat: Copy constructor called. \n" << DEFAULT;
 	this->setType(obj.getType());
 	this->_Brain = new Brain;
 	*_Brain = *(obj._Brain);
+	// ^^^^^ This should call the copy constructor of Brain.
 }
 
-Dog::~Dog()
+Cat::~Cat()
 {
-	std::cout << B_RED << "Dog: Default destructor called.\n" << DEFAULT;
+	std::cout << B_RED << "Cat: Default destructor called.\n" << DEFAULT;
 	delete _Brain;
 }
 
 // #################### Operator overloads #################################
 
-Dog& Dog::operator=(const Dog& rhs)
+Cat& Cat::operator=(const Cat& rhs)
 {
-	std::cout << "Dog: Assignment operator overload called.p\n" << DEFAULT;
+	std::cout << "Cat: Assignment operator overload called.p\n" << DEFAULT;
 	this->setType(rhs.getType());
 	this->_Brain = rhs._Brain;
 	return (*this);
@@ -45,17 +47,17 @@ Dog& Dog::operator=(const Dog& rhs)
 
 // ####################### Member functions ####################################
 
-void Dog::makeSound(void) const
+void Cat::makeSound(void) const
 {
-	std::cout << "Wuff...\n";
+	std::cout << "Miao...\n";
 }
 
-void	Dog::haveThought(std::string thought)
+void	Cat::haveThought(std::string thought) const
 {
 	_Brain->setIdea(thought);
 }
 
-void	Dog::voiceThought(int i)
+void	Cat::voiceThought(int i) const
 {
 	std::cout << _Brain->getIdea(i) << "\n";
 }

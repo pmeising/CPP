@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 12:30:38 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 16:31:23 by pmeising         ###   ########.fr       */
+/*   Created: 2023/02/02 11:10:20 by pmeising          #+#    #+#             */
+/*   Updated: 2023/02/03 11:43:58 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 # include <iostream>
 # include <string>
 # define DEFAULT "\033[0;39m"
@@ -21,19 +21,23 @@
 # define B_GREEN "\033[1;32m"
 # define B_PINK "\033[1;35m"
 
-class	Brain
+class	WrongAnimal
 {
 	public:
-		Brain();
-		Brain(const Brain& obj);
-		Brain& operator=(const Brain& rhs);
-		~Brain();
-		void	setIdea(const std::string idea);
-		std::string getIdea(int i) const;
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal& obj);
+		WrongAnimal&	operator=(const WrongAnimal& rhs);
+		~WrongAnimal();
+		void	setType(const std::string& type);
+		std::string	getType(void) const;
+		void	makeSound() const;
 
-	private:
-		unsigned int	_i; // indicates index of next empty thought slot.
-		std::string	ideas[100];
+	protected:
+		std::string	_type;
 };
+
+// The virtual keyword here created a V-Table which contains a list of 
+// all virtual functions of our base class to be able to map them to the overwritten
+// functions of the derived classes at RUNTIME.
 
 #endif

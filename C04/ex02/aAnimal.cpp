@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                        :+:      :+:    :+:   */
+/*   aAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,49 +10,49 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "aAnimal.hpp"
 
 // ################################ Constructors / Destructors #########################################
 
-Animal::Animal()
+aAnimal::aAnimal()
 {
-	std::cout << B_GREEN << "Animal: Default constructor called.\n" << DEFAULT;
-	this->setType((std::string)("Animal"));
+	std::cout << B_GREEN << "aAnimal: Default constructor called.\n" << DEFAULT;
+	this->setType((std::string)("aAnimal"));
 }
 
-Animal::Animal(const Animal& obj)
+aAnimal::aAnimal(const aAnimal& obj)
 {
-	std::cout << B_GREEN << "Animal: Copy constructor called. \n" << DEFAULT;
+	std::cout << B_GREEN << "aAnimal: Copy constructor called. \n" << DEFAULT;
 	this->setType(obj.getType());
 }
 
-Animal::~Animal()
+aAnimal::~aAnimal()
 {
-	std::cout << B_RED << "Animal: Default destructor called.\n" << DEFAULT;
+	std::cout << B_RED << "aAnimal: Default destructor called.\n" << DEFAULT;
 }
 
 // #################### Operator overloads #################################
 
-Animal& Animal::operator=(const Animal& rhs)
+aAnimal& aAnimal::operator=(const aAnimal& rhs)
 {
-	std::cout << "Animal: Assignment operator overload called.\n" << DEFAULT;
+	std::cout << "aAnimal: Assignment operator overload called.\n" << DEFAULT;
 	this->setType(rhs.getType());
 	return (*this);
 }
 
 // ####################### Member functions ####################################
 
-void	Animal::setType(const std::string& type)
+void	aAnimal::setType(const std::string& type)
 {
 	this->_type = type;
 }
 
-std::string Animal::getType(void) const
+std::string aAnimal::getType(void) const
 {
 	return (_type);
 }
 
-void	Animal::makeSound(void) const
+void	aAnimal::makeSound(void) const
 {
-	std::cout << "~~~~~ Animal sound ~~~~~~\n";
+	std::cout << "~~~~~ aAnimal sound ~~~~~~\n";
 }

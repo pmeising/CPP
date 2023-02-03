@@ -1,58 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                        :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:25:19 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 17:52:32 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/03 11:45:12 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
 // ################################ Constructors / Destructors #########################################
 
-Animal::Animal()
+WrongAnimal::WrongAnimal()
 {
-	std::cout << B_GREEN << "Animal: Default constructor called.\n" << DEFAULT;
-	this->setType((std::string)("Animal"));
+	std::cout << B_GREEN << "WrongAnimal: Default constructor called.\n" << DEFAULT;
+	this->setType((std::string)("WrongAnimal"));
 }
 
-Animal::Animal(const Animal& obj)
+WrongAnimal::WrongAnimal(const WrongAnimal& obj)
 {
-	std::cout << B_GREEN << "Animal: Copy constructor called. \n" << DEFAULT;
+	std::cout << B_GREEN << "WrongAnimal: Copy constructor called. \n" << DEFAULT;
 	this->setType(obj.getType());
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout << B_RED << "Animal: Default destructor called.\n" << DEFAULT;
+	std::cout << B_RED << "WrongAnimal: Default destructor called.\n" << DEFAULT;
 }
 
 // #################### Operator overloads #################################
 
-Animal& Animal::operator=(const Animal& rhs)
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& rhs)
 {
-	std::cout << "Animal: Assignment operator overload called.\n" << DEFAULT;
+	std::cout << "WrongAnimal: Assignment operator overload called.\n" << DEFAULT;
 	this->setType(rhs.getType());
 	return (*this);
 }
 
 // ####################### Member functions ####################################
 
-void	Animal::setType(const std::string& type)
+void	WrongAnimal::setType(const std::string& type)
 {
 	this->_type = type;
 }
 
-std::string Animal::getType(void) const
+std::string WrongAnimal::getType(void) const
 {
 	return (_type);
 }
 
-void	Animal::makeSound(void) const
+void	WrongAnimal::makeSound(void) const
 {
-	std::cout << "~~~~~ Animal sound ~~~~~~\n";
+	std::cout << "~~~~~ WrongAnimal sound ~~~~~~\n";
 }

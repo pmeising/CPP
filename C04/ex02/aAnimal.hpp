@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   aaAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:10:20 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 22:27:05 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:46:36 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 # include <iostream>
 # include <string>
 # define DEFAULT "\033[0;39m"
@@ -21,16 +21,16 @@
 # define B_GREEN "\033[1;32m"
 # define B_PINK "\033[1;35m"
 
-class	Animal
+class	aAnimal
 {
 	public:
-		Animal();
-		Animal(const Animal& obj);
-		Animal&	operator=(const Animal& rhs);
-		virtual ~Animal();
+		aAnimal();
+		aAnimal(const aAnimal& obj);
+		aAnimal&	operator=(const aAnimal& rhs);
+		virtual ~aAnimal();
 		void	setType(const std::string& type);
 		std::string	getType(void) const;
-		virtual void	makeSound() const;
+		virtual void	makeSound() const =0;
 
 	protected:
 		std::string	_type;
