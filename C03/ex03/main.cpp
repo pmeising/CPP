@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 17:34:18 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/02 15:56:06 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/06 11:50:40 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	main()
 	// Marvin.highFivesGuys();
 	Barney.highFivesGuys();
 	
-	std::cout << "DiamondHands can do anything, watch!!\n";
+	std::cout << "\n\nDiamondHands can do anything, watch!!\n\n";
 
 	Diamond_Hands.guardGate();
 	Diamond_Hands.highFivesGuys();

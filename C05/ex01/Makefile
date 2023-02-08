@@ -1,11 +1,11 @@
 NAME		:=	Bureaucrat
 
-SRC 		:=	main.cpp Bureaucrat.cpp \
+SRC 		:=	main.cpp Bureaucrat.cpp Form.cpp\
 				
 				
 OBJS 		:= 	${SRC:.cpp=.o}
 
-HEADERS		:=	Bureaucrat.hpp
+HEADERS		:=	Bureaucrat.hpp Form.hpp
 
 FLAGS		:=	-Wall -Wextra -Werror -std=c++98
 

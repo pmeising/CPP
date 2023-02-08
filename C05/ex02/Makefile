@@ -1,11 +1,11 @@
-NAME		:=	Bureaucrat
+NAME		:=	Forms
 
-SRC 		:=	main.cpp Bureaucrat.cpp \
+SRC 		:=	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp \
 				
 				
 OBJS 		:= 	${SRC:.cpp=.o}
 
-HEADERS		:=	Bureaucrat.hpp
+HEADERS		:=	Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp
 
 FLAGS		:=	-Wall -Wextra -Werror -std=c++98
 
@@ -22,7 +22,7 @@ ${NAME}:		${OBJS}
 all:			${NAME}
 
 clean:
-				${RM} ${OBJS}
+				${RM} ${OBJS} test_shrubbery
 
 fclean:			clean
 				${RM} ${NAME}

@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 18:55:23 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/06 11:36:09 by pmeising         ###   ########.fr       */
+/*   Created: 2023/02/08 19:40:11 by pmeising          #+#    #+#             */
+/*   Updated: 2023/02/08 20:02:03 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
-# include "ClapTrap.hpp"
+#ifndef INTERN_HPP
+# define INTERN_HPP
+# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
 
-class ScavTrap : virtual public ClapTrap
+class	Intern
 {
 	public:
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap& object);
-		ScavTrap&	operator=(const ScavTrap& rhs); // Again, rhs stands for right-hand-side.
-		~ScavTrap();
+		Intern();
+		Intern(const Intern& obj);
+		Intern&	operator=(const Intern& rhs);
+		~Intern();
 		
-		void	attack(const std::string& target);
-		void	guardGate();
-
-	private:
+		void	hm() const;
+		AForm	*makeForm(std::string formName, std::string formTarget);
 };
 
 #endif

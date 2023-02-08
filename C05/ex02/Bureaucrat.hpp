@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 23:00:58 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/06 17:04:49 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:15:45 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <string>
 # include <iostream>
 # include <exception>
+# include "AForm.hpp"
 
 # define DEFAULT "\033[0;39m"
 # define B_RED "\033[1;31m"
@@ -23,19 +24,27 @@
 # define B_GREEN "\033[1;32m"
 # define B_PINK "\033[1;35m"
 
+class AForm;
+
 class	Bureaucrat
 {
+	private:
+		const std::string	_name;
+		unsigned int		_grade;
+	
 	public:
 		Bureaucrat();
 		Bureaucrat(std::string name, unsigned int grade);
 		Bureaucrat(const Bureaucrat& obj);
 		Bureaucrat& operator=(const Bureaucrat& rhs);
-		
 		~Bureaucrat();
-		std::string	getName(void) const;
+		
+		std::string		getName(void) const;
 		unsigned int	getGrade(void) const;
-		void	incrementGrade();
-		void	decrementGrade();
+		void			incrementGrade();
+		void			decrementGrade();
+		void			signForm(AForm& form);
+		void			executeForm(AForm const& form);
 
 	class GradeTooHighException : public std::exception // This class is inherited from the  base class Exception. Now the Exception base class has a member function called 'what'. This needs to be overwritten by our own what function.
 	{
@@ -51,13 +60,9 @@ class	Bureaucrat
 		// the 'what' function is declared in the exception.h file as: 'virtual const char *std::exception::what() const'
 		virtual const char *what() const throw()
 		{
-			return ("The Grade is too low, minimum grade possible: 150");
+			return ("The Grade is too low! Try applying for a promotion.");
 		}
 	};
-	
-	private:
-		const std::string	_name;
-		unsigned int		_grade;
 };
 
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat& obj);

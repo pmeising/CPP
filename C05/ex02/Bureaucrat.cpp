@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 13:15:35 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/06 17:13:56 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:28:57 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name)
 	std::cout << this->getName() << " tries to be a Bureaucrat.\n";
 	try
 	{
-		if (grade < 1)
+		if (grade < (unsigned int)1)
 			throw Bureaucrat::GradeTooHighException();
-		else if (grade > 150)
+		else if (grade > (unsigned int)150)
 			throw Bureaucrat::GradeTooLowException();
 		else
 		{
 			_grade = grade;
-			std::cout << B_GREEN << "\nBureaucrat: " << this->getName() << " constructed with grade: " << this->getGrade() << "\n\n" << DEFAULT;
+			std::cout << B_GREEN << "Bureaucrat: " << this->getName() << " constructed with grade: " << this->getGrade() << "\n" << DEFAULT;
 		}
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << "Exception thrown: " << e.what() << "\n";
+		std::cout << B_RED << "Exception thrown: " << e.what() << "\n" << DEFAULT;
 		_grade = 150;
 	}
 }
@@ -94,11 +94,47 @@ void	Bureaucrat::decrementGrade()
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << "Exception thrown: " << e.what() << "\n";
+		std::cout << B_RED << "Exception thrown: " << e.what() << "\n";
 	}
+	catch(...)
+	{
+		std::cout << B_RED << "Exceptoin thrown: Default exception\n";
+	}
+}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
+{
+	// Can't assign everything, but I'll assign the non-const variables.
+	// This is not a class designed to be assigned like this.
+	std::cout << B_GREEN << "Bureaucrat: Assignment operator.\n" << DEFAULT;
+	this->_grade = rhs.getGrade();
+	return (*this);
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
 {
 	return (os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".\n");
+}
+
+// ################################### Member functions #######################################
+
+void	Bureaucrat::signForm(AForm& form)
+{
+	if (form.beSigned(*this)) // returns true if possible, false if not.
+		std::cout << B_GREEN << "Bureaucrat " << this->getName() << " signed form " << form.getName() << " succesfully.\n" << DEFAULT;
+	else
+		std::cout << B_RED << "Bureaucrat " << this->getName() << " couldn't sign " << form.getName() << " because the Bureaucrat does not have the right grade.\n" << DEFAULT;
+}
+
+// Checks whether the form is executable from this Bureaucrat or not.
+// If so, executes and outputs message; if not, writes error message to output.
+void	Bureaucrat::executeForm(AForm const& form)
+{
+	if (form.execute(*this))
+	{
+		form.exec();
+		std::cout << B_GREEN << this->getName() << " executed form: '" << form.getName() << "' successfully.\n" << DEFAULT;
+	}
+	else
+		std::cout << B_RED << this->getName() << " was unable to execute the form: '" << form.getName() << ".\n" << DEFAULT;
 }

@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 22:03:22 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/02 15:00:30 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/06 11:49:26 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ DiamondTrap::DiamondTrap(std::string name)
 }
 
 // Same thing here we need to call    !! both !!   Copy constructors of the base classes for this to work.
-DiamondTrap::DiamondTrap(const DiamondTrap& object) : FragTrap(object), ScavTrap(object)
+DiamondTrap::DiamondTrap(const DiamondTrap& object) : ClapTrap(object), FragTrap(object), ScavTrap(object)
 {
 	std::cout << B_GREEN << "DiamondTrap: Copy constructor called.\n";
 	this->ScavTrap::setAttackDamage(object.ScavTrap::getAttackDamage());
