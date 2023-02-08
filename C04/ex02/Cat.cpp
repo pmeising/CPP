@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:38:29 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 22:18:42 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/08 21:14:09 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ Cat::Cat(const Cat& obj) : aAnimal()
 {
 	std::cout << B_GREEN << "Cat: Copy constructor called. \n" << DEFAULT;
 	this->setType(obj.getType());
+	// delete this->_Brain;
 	this->_Brain = new Brain;
 	*_Brain = *(obj._Brain);
 	// ^^^^^ This should call the copy constructor of Brain.

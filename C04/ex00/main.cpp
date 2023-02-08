@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:43:16 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 12:23:57 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/08 20:54:33 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main()
 	
 	std::cout << Wrongj->getType() << " " << std::endl;
 	std::cout << Wrongi->getType() << " " << std::endl;
-	Wrongi->makeSound(); //will output the cat sound!
+	Wrongi->makeSound();
 	Wrongj->makeSound();
 	Wrongmeta->makeSound();
 	
