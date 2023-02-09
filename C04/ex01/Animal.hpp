@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:10:20 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 22:27:05 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/09 09:41:47 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class	Animal
 		Animal(const Animal& obj);
 		Animal&	operator=(const Animal& rhs);
 		virtual ~Animal();
+		
 		void	setType(const std::string& type);
 		std::string	getType(void) const;
 		virtual void	makeSound() const;

@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:34:47 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 22:37:31 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/09 09:42:41 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class	Cat : public Animal
 		Cat(const Cat& obj);
 		Cat&	operator=(const Cat& rhs);
 		virtual ~Cat();
+		
 		void	makeSound() const;
 		void	haveThought(std::string thought) const;
 		void	voiceThought(int i) const;

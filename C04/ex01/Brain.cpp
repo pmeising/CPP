@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:39:33 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 22:12:09 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/09 10:34:12 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Brain::Brain()
 
 Brain::~Brain()
 {
-	std::cout << B_GREEN << "Brain: Default destructor called.\n" << DEFAULT;
+	std::cout << B_RED << "Brain: Default destructor called.\n" << DEFAULT;
 }
 
 Brain::Brain(const Brain& obj)
@@ -64,5 +64,7 @@ std::string Brain::getIdea(int i) const
 	if (i >= 0 && i < (int)_i)
 		return (this->ideas[i]);
 	else
+	{
 		return ("I can't remember that. (i.e. index out of bounds.)");
+	}
 }

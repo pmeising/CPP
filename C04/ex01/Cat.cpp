@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:38:29 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/03 22:41:04 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/09 10:02:19 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ Cat::Cat(const Cat& obj) : Animal()
 Cat::~Cat()
 {
 	std::cout << B_RED << "Cat: Default destructor called.\n" << DEFAULT;
-	delete _Brain;
+	if (this->_Brain)
+		delete this->_Brain;
 }
 
 // #################### Operator overloads #################################
@@ -41,6 +42,8 @@ Cat& Cat::operator=(const Cat& rhs)
 {
 	std::cout << B_GREEN << "Cat: Assignment operator overload called.\n" << DEFAULT;
 	this->setType(rhs.getType());
+	if (this->_Brain) // This section is very important. I need to free an existing Brain (i.e. malloced data) before mallocing a new Brain.
+		delete this->_Brain;
 	this->_Brain = new Brain;
 	*_Brain = *(rhs._Brain);
 	return (*this);
