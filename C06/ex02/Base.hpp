@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/10 10:17:08 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/16 15:24:42 by pmeising         ###   ########.fr       */
+/*   Created: 2023/02/16 18:37:43 by pmeising          #+#    #+#             */
+/*   Updated: 2023/02/16 19:06:44 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef BASE_HPP
+# define BASE_HPP
+# include <string>
+# include <iostream>
+# include <cstdlib>
+# include <stdint.h>
 
-int	main(int argc, char **argv)
+class A;
+class B;
+class C;
+
+class	Base
 {
-	if (argc == 2 && argv[1])
-	{
-		ScalarConverter::convert(argv[1]);
-	}
-	return (0);
-}
+	public:
+		virtual	~Base();
+		Base*	generate(void);
+		void	identify(Base* p);
+		void	identify(Base& p);
+};
+
+#endif

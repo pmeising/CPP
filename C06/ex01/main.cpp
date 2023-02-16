@@ -5,18 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/10 10:17:08 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/16 15:24:42 by pmeising         ###   ########.fr       */
+/*   Created: 2023/02/16 18:06:08 by pmeising          #+#    #+#             */
+/*   Updated: 2023/02/16 18:32:40 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Serializer.hpp"
 
-int	main(int argc, char **argv)
+int	main()
 {
-	if (argc == 2 && argv[1])
-	{
-		ScalarConverter::convert(argv[1]);
-	}
-	return (0);
+	Data		data;
+	Data		*ptr;
+	uintptr_t	ui;
+
+	ptr = &data;
+	std::cout << "Ptr address: " << ptr << ".\n";
+	ui = Serializer::serialize(ptr);
+	ptr = Serializer::deserialize(ui);
+	std::cout << "unigned int: " << ui << ".\n"
+	<< "ptr address: " << ptr << ".\n";
 }

@@ -5,18 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/10 10:17:08 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/16 15:24:42 by pmeising         ###   ########.fr       */
+/*   Created: 2023/02/16 18:37:27 by pmeising          #+#    #+#             */
+/*   Updated: 2023/02/16 19:19:57 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Base.hpp"
 
-int	main(int argc, char **argv)
+int	main()
 {
-	if (argc == 2 && argv[1])
-	{
-		ScalarConverter::convert(argv[1]);
-	}
-	return (0);
+	Base	base;
+	Base	*ptr;
+	Base	ref;
+
+	ptr = base.generate();
+	base.identify(ptr);
+
+	base.identify(*ptr);
+	delete ptr;
 }

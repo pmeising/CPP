@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/10 10:17:08 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/16 15:24:42 by pmeising         ###   ########.fr       */
+/*   Created: 2023/02/16 18:42:16 by pmeising          #+#    #+#             */
+/*   Updated: 2023/02/16 18:45:12 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef B_HPP
+# define B_HPP
+# include "Base.hpp"
 
-int	main(int argc, char **argv)
+class	B : public Base
 {
-	if (argc == 2 && argv[1])
-	{
-		ScalarConverter::convert(argv[1]);
-	}
-	return (0);
-}
+	
+};
+
+#endif
