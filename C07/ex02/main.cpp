@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:14:03 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/17 17:36:37 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/17 17:53:25 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int main(int, char**)
 			mirror[i] = value;
 		}
 		// SCOPE
+		std::cout << "So far all good?\n";
 		{
 			Array<int> tmp = numbers;
 			// Array<int> test(tmp);

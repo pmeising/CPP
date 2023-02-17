@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:07:50 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/17 17:42:14 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/17 17:55:30 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,16 @@ Array<T>::Array() : array(NULL)
 }
 
 template <class T>
-Array<T>::Array(unsigned int n)
+Array<T>::Array(unsigned int n) : array(NULL)
 {
 	this->array = new T[n]();
 	std::cout << "Parameter constructor call.\nArray of size " << n << " created.\n";
 }
 
+
+// Need to initialize the array first, before it can be deleted. :D 
 template <class T>
-Array<T>::Array(const Array<T>& obj)
+Array<T>::Array(const Array<T>& obj) : array(NULL)
 {
 	unsigned int	size;
 	size = obj.size();
@@ -75,6 +77,7 @@ Array<T>&	Array<T>::operator=(const Array<T>& rhs)
 {
 	unsigned int	size;
 	size = rhs.size();
+	std::cout << "Size: " << size << "\n";
 
 	if (this->array)
 		delete[] array;
@@ -103,7 +106,9 @@ T&	Array<T>::operator[](unsigned int i)
 template <class T>
 unsigned int	Array<T>::size() const
 {
-	return (sizeof(this->array) / sizeof(T));
+	if (this->array)
+		return (sizeof(this->array) / sizeof(T));
+	return (0);
 }
 
 #endif
