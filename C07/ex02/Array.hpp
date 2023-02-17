@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:07:50 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/17 17:55:30 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/17 19:15:01 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,43 +30,49 @@ class Array
 		unsigned int	size() const;
 
 	private:
-		T	*array;
+		T*				_array;
+		unsigned int	_size;
 };
 
 template <class T>
-Array<T>::Array() : array(NULL)
+Array<T>::Array() : _array(NULL), _size(0)
 {
 	std::cout << "Default constructor call.\n";
 }
 
 template <class T>
-Array<T>::Array(unsigned int n) : array(NULL)
+Array<T>::Array(unsigned int n) : _array(NULL), _size(n)
 {
-	this->array = new T[n]();
+	if (this->_array)
+		delete[] this->_array;
+	this->_array = new T[n]();
 	std::cout << "Parameter constructor call.\nArray of size " << n << " created.\n";
 }
 
 
-// Need to initialize the array first, before it can be deleted. :D 
+// Need to initialize the _array first, before it can be deleted. :D 
 template <class T>
-Array<T>::Array(const Array<T>& obj) : array(NULL)
+Array<T>::Array(const Array<T>& obj) : _array(NULL), _size(obj.size())
 {
 	unsigned int	size;
 	size = obj.size();
 
-	if (this->array)
-		delete[] array;
-	this->array = new T[size]();
+	if (this->_array)
+	{
+		delete[] this->_array;
+		_array = NULL;
+	}
+	this->_array = new T[size]();
 	for (unsigned int i = 0; i < size; i++)
-		this->array[i] = obj.array[i];
+		this->_array[i] = obj._array[i];
 }
 
 
 template <class T>
 Array<T>::~Array()
 {
-	if (this->array)
-		delete[] this->array;
+	if (this->_array)
+		delete[] this->_array;
 	std::cout << "Default destructor call.\n";
 }
 
@@ -77,27 +83,21 @@ Array<T>&	Array<T>::operator=(const Array<T>& rhs)
 {
 	unsigned int	size;
 	size = rhs.size();
-	std::cout << "Size: " << size << "\n";
 
-	if (this->array)
-		delete[] array;
-	this->array = new T[size]();
+	if (this->_array)
+		delete[] _array;
+	this->_array = new T[size]();
 	for (int i = 0; i < size; i++)
-		this->array[i] = rhs.array[i];
+		this->_array[i] = rhs._array[i];
 	return (*this);	
 }
 
 template <class T>
 T&	Array<T>::operator[](unsigned int i)
 {
-	try
-	{
-		return (this->array[i]);
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << "Exception thrown: Iterator out of bounds.\n";
-	}
+	if (i < 0 || i >= this->_size)
+		throw std::exception();
+	return (this->_array[i]);
 }
 
 
@@ -106,9 +106,8 @@ T&	Array<T>::operator[](unsigned int i)
 template <class T>
 unsigned int	Array<T>::size() const
 {
-	if (this->array)
-		return (sizeof(this->array) / sizeof(T));
-	return (0);
+	// The sizeof() returned a wrong value. Now creating a variable _size to store initial size in.
+	return (this->_size);
 }
 
 #endif
