@@ -4,7 +4,7 @@ SRC 		:=	main.cpp \
 				
 OBJS 		:= 	${SRC:.cpp=.o}
 
-HEADERS		:=	Array.hpp
+HEADERS		:=	Array.hpp Array.tpp
 
 FLAGS		:=	-Wall -Wextra -Werror -std=c++98
 

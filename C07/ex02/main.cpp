@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:14:03 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/17 13:27:56 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:58:16 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,14 @@
 	
 // }
 
+
+
 #include <iostream>
 #include <Array.hpp>
 // #include "Array.tpp"
 
 #define MAX_VAL 750
+
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
