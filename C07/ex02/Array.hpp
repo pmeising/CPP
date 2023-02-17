@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:07:50 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/17 17:17:23 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/17 17:42:14 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ARRAY_HPP
 # include <iostream>
 # include <cstdlib>
+# include <exception>
 
 template	<class T>
 class Array
@@ -42,7 +43,7 @@ template <class T>
 Array<T>::Array(unsigned int n)
 {
 	this->array = new T[n]();
-	std::cout << "Parameter constructor call.\n Array of size " << n << " created.\n";
+	std::cout << "Parameter constructor call.\nArray of size " << n << " created.\n";
 }
 
 template <class T>
@@ -102,11 +103,7 @@ T&	Array<T>::operator[](unsigned int i)
 template <class T>
 unsigned int	Array<T>::size() const
 {
-	int i = 0;
-
-	while (this->array[i])
-		i++;
-	return (i);
+	return (sizeof(this->array) / sizeof(T));
 }
 
 #endif
