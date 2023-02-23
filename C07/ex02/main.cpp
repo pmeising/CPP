@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:14:03 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/17 19:15:07 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/23 12:10:49 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int, char**)
 {
 	{
 		Array<char*>	string;
-		Array<char*>	test(30);
+		Array<char*>	test(0);
 		Array<int>		numbers(MAX_VAL);
 
 		for (int i = 0; i < MAX_VAL; i++)
