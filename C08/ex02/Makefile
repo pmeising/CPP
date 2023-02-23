@@ -1,10 +1,10 @@
-NAME		:=	whatever
+NAME		:=	MutantStack
 
 SRC 		:=	main.cpp \
 				
 OBJS 		:= 	${SRC:.cpp=.o}
 
-HEADERS		:=	whatever.hpp
+HEADERS		:=	MutantStack.hpp
 
 FLAGS		:=	-Wall -Wextra -Werror -std=c++98
 
