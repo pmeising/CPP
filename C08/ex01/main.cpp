@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 23:25:32 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/23 19:59:02 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/23 20:00:04 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,5 @@ int main()
 		std::cout << "Longest span: " << sp.longestSpan() << "\n";
 		std::cout << "Shortest span: " << sp.shortestSpan() << "\n";
 	}
-	
 	return 0;
 }
