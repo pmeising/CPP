@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:14:03 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/23 12:10:49 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:32:55 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main(int, char**)
 	}
 
 	{
-		std::cout << "\n##################################### Eval tests ######################################\n\n";
+		std::cout << B_GREEN << "\n##################################### Eval tests ######################################\n\n" << DEFAULT;
 		Array<int> numbers(MAX_VAL);
 		int* mirror = new int[MAX_VAL];
 		srand(time(NULL));
@@ -40,7 +40,6 @@ int main(int, char**)
 			mirror[i] = value;
 		}
 		// // SCOPE
-		std::cout << "So far all good?\n";
 		{
 			Array<int> tmp = numbers;
 			Array<int> test(tmp);
@@ -49,7 +48,7 @@ int main(int, char**)
 		{
 			if (mirror[i] != numbers[i])
 			{
-				std::cerr << "didn't save the same value!!" << std::endl;
+				std::cerr << B_RED << "didn't save the same value!!" << std::endl << DEFAULT;
 				return 1;
 			}
 		}
@@ -64,7 +63,7 @@ int main(int, char**)
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << '\n';
+			std::cerr << B_RED << e.what() << ": Index out of range!\n" << DEFAULT;
 		}
 		try
 		{
@@ -72,7 +71,7 @@ int main(int, char**)
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << '\n';
+			std::cerr << B_RED << e.what() << ": Index out of range!\n" << DEFAULT;
 		}
 	}
 }
