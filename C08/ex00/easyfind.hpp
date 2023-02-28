@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 21:45:17 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/27 22:54:07 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/28 21:06:09 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 // https://en.cppreference.com/w/cpp/iterator/iterator
 
-template	<class T>
+template	<typename T>
 void	easyfind(T	&container, int tofind)
 {
 	typename T::iterator iter = std::find(container.begin(), container.end(), tofind);

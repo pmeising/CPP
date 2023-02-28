@@ -6,18 +6,28 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 22:06:18 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/27 22:48:31 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/28 21:20:18 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
 
+// Fills in a vector of type T with value x.
+template <typename T>
+void	fill_vector(std::vector<T>& vec, const T& x)
+{
+	std::cout << vec.size() << std::endl;
+	for(unsigned int i = 0; i < vec.size(); i++)
+	{
+		vec[i] = x;
+		std::cout << vec[i] << std::endl;
+	}
+}
+
 int	main(int argc, char	**argv)
 {
-	std::deque<int>		deque;
-	{
-		std::vector<int>	vector = {2, 1, 4, 5, 2, 3, 6293};
-		
+		std::vector<int>	vector(238);
+		fill_vector(vector, 4);
 		std::cout << "############################## Let's check out the vector class ###########################\n";
 		std::cout << B_BLUE << "Vector contains " << vector.size() << " values.\n" << DEFAULT;
 		for (int i = 0; i < vector.size();i++)
@@ -60,7 +70,6 @@ int	main(int argc, char	**argv)
 				std::cerr << B_RED << e.what() << ": Value " << i << " not in list. " << DEFAULT << std::endl;
 			}
 		}
-	}
 	
 	{
 		std::list<int>		list;
