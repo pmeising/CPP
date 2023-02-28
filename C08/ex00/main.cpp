@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 22:06:18 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/22 23:06:45 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/27 22:48:31 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,10 @@ int	main(int argc, char	**argv)
 			}
 		}
 	}
+	
 	{
-		std::list<int>		list = {2, 1, 4, 3, 2, 3, 6293};
+		std::list<int>		list;
+		list.push_back(3);
 		std::cout << B_BLUE << "\nList contains " << list.size() << " values.\n" << DEFAULT;
 		
 		std::cout << B_GREEN << "############################## Let's check out the list class ###########################\n";
@@ -110,6 +112,5 @@ int	main(int argc, char	**argv)
 			}
 		}
 	}
-	
 	return (0);
 }

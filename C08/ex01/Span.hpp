@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 23:16:23 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/23 18:57:51 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/28 08:47:49 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class	Span
 {
 	private:
 		unsigned int		_size;
+		std::vector<int>	_vec;
 	public:
 		Span();
 		Span(unsigned int N);
@@ -40,7 +41,8 @@ class	Span
 		void	addNumber(int nbr);
 		unsigned long	shortestSpan();
 		unsigned long	longestSpan();
-		std::vector<int>	_vec;
 };
+
+// https://www.youtube.com/watch?v=2olsGf6JIkU
 
 #endif
