@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:01:38 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/27 20:16:34 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/27 23:49:01 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,12 @@ class MutantStack : public std::stack<T>
 		~MutantStack();
 		
 		typedef typename std::stack<T>::container_type::iterator iterator;
+		// typedef typename std::stack<T>::container_type::iterator	reverse_iterator;
 
 		iterator begin() {return this->c.begin();} // Stack class initiated without an adapter specified, defaults to deque. Deque contains a protected member c, which is the sequence of data. This uses the standard iterators and we are able to access them through c.
 		iterator end() {return this->c.end();}
-		
+		// reverse_iterator begin() {return this->c.begin();}
+		// reverse_iterator end() {return this->c.end();}
 };
 
 template <typename T>
