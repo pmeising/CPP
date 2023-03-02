@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 23:21:30 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/27 23:29:27 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:55:45 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,65 +48,48 @@ Span&	Span::operator=(const Span& rhs)
 
 // ############################### Member functions ################################
 
+std::vector<int>*	Span::get_vec(void)
+{
+	return (&this->_vec);
+}
+
 void	Span::addNumber(int nbr)
 {
-	std::cout << B_RED "Hello\n" << DEFAULT;
 	int count = std::count(_vec.begin(), _vec.end(), 0);
 	if (count > 0)
-	{
 		this->_vec[this->_size - count] = nbr;
-	}
 	else
-	try
-	{
 		throw std::exception();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << B_RED << e.what() << " Maximum storage reached.\n" << DEFAULT;
-	}
 }
 
 unsigned long	Span::shortestSpan()
 {
-	try
+
+	if (_vec.size() - (std::count(_vec.begin(), _vec.end(), 0)) <= 1)
+		throw std::exception();
+	else
 	{
-		if (_vec.size() - (std::count(_vec.begin(), _vec.end(), 0)) <= 1)
-			throw std::exception();
-		else
-		{
-			std::sort(_vec.begin(), _vec.end());
-			std::vector<int>			results(_vec.size());
-			std::vector<int>::iterator	result = results.begin();
-			// std::cout << "\n####################### Creating Vector with Adjacent differences values #############\n";
-			std::adjacent_difference(_vec.begin(), _vec.end(), result);
-			std::vector<int>::iterator	min = std::min_element(results.begin(), results.end());
-			return (*min);
-		}
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << B_RED << e.what() << " Logically not possible\n" << DEFAULT;
+		std::sort(_vec.begin(), _vec.end());
+		std::vector<int>			results(_vec.size());
+		std::vector<int>::iterator	result = results.begin();
+		// std::cout << "\n####################### Creating Vector with Adjacent differences values #############\n";
+		std::adjacent_difference(_vec.begin(), _vec.end(), result);
+		std::vector<int>::iterator	min = std::min_element(results.begin(), results.end());
+		return (*min);
 	}
 	return (42);
 }
 
 unsigned long	Span::longestSpan()
 {
-	try
+
+	if (_vec.size() - (std::count(_vec.begin(), _vec.end(), 0)) <= 1)
+		throw std::exception();
+	else
 	{
-		if (_vec.size() - (std::count(_vec.begin(), _vec.end(), 0)) <= 1)
-			throw std::exception();
-		else
-		{
-			std::vector<int>::iterator	min = std::min_element(_vec.begin(), _vec.end());
-			std::vector<int>::iterator	max = std::max_element(_vec.begin(), _vec.end());
-			return (*max - *min);
-		}
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << B_RED << e.what() << " Logically not possible\n" << DEFAULT;
+		std::vector<int>::iterator	min = std::min_element(_vec.begin(), _vec.end());
+		std::vector<int>::iterator	max = std::max_element(_vec.begin(), _vec.end());
+		return (*max - *min);
 	}
 	return (42);
 }

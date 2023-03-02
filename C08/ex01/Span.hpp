@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 23:16:23 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/28 08:47:49 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:52:03 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ class	Span
 		void	addNumber(int nbr);
 		unsigned long	shortestSpan();
 		unsigned long	longestSpan();
+		std::vector<int>*	get_vec(void);
 };
 
 // https://www.youtube.com/watch?v=2olsGf6JIkU
