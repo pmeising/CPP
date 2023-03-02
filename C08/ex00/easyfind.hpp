@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 21:45:17 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/22 23:03:54 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/02/28 21:06:09 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@
 # define B_PINK "\033[1;35m"
 
 // https://en.cppreference.com/w/cpp/iterator/iterator
-template	<class T>
+
+template	<typename T>
 void	easyfind(T	&container, int tofind)
 {
-	class T::iterator iter = std::find(container.begin(), container.end(), tofind);
+	typename T::iterator iter = std::find(container.begin(), container.end(), tofind);
 	if (*iter == tofind)
 		std::cout << B_GREEN << "Found it!\n" << DEFAULT << std::endl;
 	else
