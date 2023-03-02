@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 23:25:32 by pmeising          #+#    #+#             */
-/*   Updated: 2023/03/02 15:56:05 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/03/02 17:03:33 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main()
 		}
 		try
 		{
-			std::cout << "Shortest span is: " << sp.shortestSpan() << "."<< std::endl;
+			std::cout << "\nShortest span is: " << sp.shortestSpan() << "."<< std::endl;
 		}
 		catch(const std::exception& e)
 		{
@@ -44,7 +44,7 @@ int main()
 		}
 		try
 		{
-			std::cout << "Longest span is: " << sp.longestSpan() << "." << std::endl;			
+			std::cout << "\nLongest span is: " << sp.longestSpan() << "." << std::endl;			
 		}
 		catch(const std::exception& e)
 		{
@@ -55,22 +55,40 @@ int main()
 		Span	sp(20000);
 		Span	sp_2 = sp;
 		sp.addNumber(3);
-		std::vector<int> *vec = sp.get_vec();
-		std::vector<int> *vec_2 = sp_2.get_vec();
-		std::cout << vec[0][0] << "\n";
-		std::cout << vec_2[0][0] << "\n";
+		std::vector<int> vec = sp.get_vec();
+		std::vector<int> vec_2 = sp_2.get_vec();
+		std::cout << vec[0] << "\n";
+		std::cout << vec_2[0] << "\n";
 	}
-	// {
-	// 	Span	sp(10000);
-	// 	std::vector<int>	test(5);
-	// 	for(unsigned int i = 0; i < 5; i++)
-	// 		test[i] = 1;
-	// 	std::for_each(sp._vec.begin(), sp._vec.end(), setrand);
-	// 	sp._vec.insert(sp._vec.begin(),  test.begin(), test.end());
-	// 	// for(int i = 0; i < 10000; i++) // This will be very slow...
-	// 	// 	sp.addNumber(rand());
-	// 	std::cout << "Longest span: " << sp.longestSpan() << "\n";
-	// 	std::cout << "Shortest span: " << sp.shortestSpan() << "\n";
-	// }
+	{
+		Span	sp(100);
+		std::vector<int>	test(5);
+		for(unsigned int i = 0; i < 5; i++)
+			test[i] = 1;
+		std::vector<int>	vec = sp.get_vec();
+		std::for_each(vec.begin(), vec.end(), setrand);
+		for(unsigned int i = 0; i < vec.size(); i++)
+			std::cout << vec[i] << ", ";
+		vec.insert(vec.end(),  test.begin(), test.end());
+		for(unsigned int i = 0; i < vec.size(); i++)
+			std::cout << vec[i] << ", ";
+
+		try
+		{
+			std::cout << "\nLongest span: " << sp.longestSpan() << "\n";		
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << B_RED << e.what() << " Logically not possible\n" << DEFAULT;
+		}
+		try
+		{
+			std::cout << "\nShortest span: " << sp.shortestSpan() << "\n";		
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << B_RED << e.what() << " Logically not possible\n" << DEFAULT;
+		}
+	}
 	return 0;
 }

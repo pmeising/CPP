@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 20:39:43 by pmeising          #+#    #+#             */
-/*   Updated: 2023/02/27 23:50:21 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/03/02 17:06:29 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,16 @@ int main()
 		std::cout << mStack.top() << "\n";
 		MutantStack<std::string>::iterator	begin = mStack.begin();
 		MutantStack<std::string>::iterator	end = mStack.end();
+		while (begin != end)
+		{
+			std::cout << B_PINK << "Content: " << *begin << "\n" << DEFAULT;
+			begin++;
+		}
+		begin = mStack.begin();
+		end = mStack.end();
 		while (end != begin)
 		{
-			std::cout << B_PINK << "Content: " << *end << "\n" << DEFAULT;
+			std::cout << B_YELLOW << "Content: " << *end << "\n" << DEFAULT;
 			--end;
 		}
 	}

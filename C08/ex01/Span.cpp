@@ -6,7 +6,7 @@
 /*   By: pmeising <pmeising@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 23:21:30 by pmeising          #+#    #+#             */
-/*   Updated: 2023/03/02 15:55:45 by pmeising         ###   ########.fr       */
+/*   Updated: 2023/03/02 16:57:02 by pmeising         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ Span&	Span::operator=(const Span& rhs)
 
 // ############################### Member functions ################################
 
-std::vector<int>*	Span::get_vec(void)
+std::vector<int>	Span::get_vec(void)
 {
-	return (&this->_vec);
+	return (this->_vec);
 }
 
 void	Span::addNumber(int nbr)
